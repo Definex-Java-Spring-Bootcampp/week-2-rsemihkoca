@@ -74,11 +74,62 @@ docker-compose up: Docker-compose dosyasındaki servisleri başlatır.
 
 docker-compose down: Docker-compose dosyasındaki servisleri durdurur ve temizler.
 
-6. Microservice ve Monotlith mimarilerini kıyaslayın. `(15 PUAN)`
+**6. Microservice ve Monotlith mimarilerini kıyaslayın. `(15 PUAN)`**
 
-7. API Gateway, Service Discovery, Load Balancer kavramlarını açıklayın. `(10 PUAN)`
+1. **Boyut ve Kapsam**:
+   - Monolit: Uygulama tek bir büyük kod tabanında bulunur. Tüm modüller ve bileşenler aynı uygulama içinde yer alır.
+   - Microservice: Uygulama, küçük, bağımsız servislere bölünmüştür. Her hizmet, tek bir işlevi gerçekleştirir ve kendi kod tabanına sahiptir.
+
+2. **Bağımsızlık**:
+   - Monolit: Bir bileşenin güncellenmesi, tüm uygulamanın yeniden dağıtılmasını gerektirebilir.
+   - Microservice: Her servis bağımsız olarak dağıtılabilir, güncellenebilir ve ölçeklenebilir.
+
+3. **Teknoloji Çeşitliliği**:
+   - Monolit: Teknoloji yelpazesi genellikle sınırlıdır, çünkü tüm uygulama aynı teknoloji yığınında geliştirilir.
+   - Microservice: Her servis kendi teknoloji yığınına sahip olabilir, bu da teknoloji çeşitliliğine olanak tanır.
+
+4. **Ölçeklenebilirlik**:
+   - Monolit: Ölçeklenebilirlik genellikle uygulamanın tümünü kopyalayarak veya yükselterek gerçekleştirilir.
+   - Microservice: İhtiyaç duyulan servisleri yalnızca ölçeklendirerek kaynakların daha etkin kullanımını sağlar.
+
+
+   Burayı hazırladığım görsel ile destekleyebilirim. Görselde Monolit ve Microservice mimarilerinin ölçeklenebilirlik konusundaki farkları gösterilmektedir. Monolit mimarisinde tüm uygulama bir bütün olarak ölçeklendirilirken, Microservice mimarisinde sadece ihtiyaç duyulan servisler ölçeklendirilir. Bu da kaynakların daha etkin kullanımını sağlar.
+![Untitled-2024-03-20-1858.png](Untitled-2024-03-20-1858.png)
+
+5. **Bakım ve Sorun Giderme**:
+   - Monolit: Sorun giderme ve bakım genellikle daha zordur, çünkü tüm uygulama tek bir kod tabanında yer alır.
+   - Microservice: Servislerin bağımsızlığı, sorun gidermeyi ve bakımı daha kolay hale getirir.
+
+6. **Bağlılık ve Bağımsızlık**:
+   - Monolit: Tüm bileşenler birbirine sıkıca bağlıdır, bu da yeniden kullanımı ve değişiklikleri zorlaştırabilir. Örnek vermek gerekise bir MVC uygulamasında view, controller ve model birbirine sıkıca bağlıdır. View değiştiğinde model ve controller'ı da etkileyebilir.
+   - Microservice: Her servis bağımsızdır, bu da yeniden kullanımı, değişiklikleri ve hatta farklı projelerde kullanılabilirliği kolaylaştırır.
+
+7. **İlk Geliştirme Süreci**:
+   - Monolit: Başlangıçta hızlı gelişme sağlayabilir, ancak zamanla karmaşıklık artabilir.
+   - Microservice: İlk aşamada biraz daha zaman alabilir, ancak uzun vadede esneklik ve ölçeklenebilirlik sağlar. bir adet auth servisi oluşturup, bu servisi diğer bütün uygulamalarınızda kullanabilirsiniz.
+
+8. **Tolerans ve Dayanıklılık**:
+   - Monolit: Bir bileşen hatası genellikle tüm uygulamayı etkileyebilir.
+   - Microservice: Her servis bağımsız olduğu için bir hizmetin hatası diğerlerini etkilemez.
+
+**7. API Gateway, Service Discovery, Load Balancer kavramlarını açıklayın. `(10 PUAN)`**
+
+![img.png](img.png)
+Api gateway istekleri yönlendirirken service discovery'e ihtiyaç duyar. 
+Diğer türlü hangi servisin hangi portta olduğunu bilemeyiz ve istekleri yönlendiremeyiz.
+Service discovery, servislerin bulunabilirliğini sağlar. Bunu yaparken servislerin IP adreslerini ve portlarını bir registry içinde tutar.
+Load balancer ise gelen istekleri servisler arasında dağıtır. Örneğin, bir servise gelen isteklerin yarısını bir sunucuya, diğer yarısını başka bir sunucuya yönlendirebilir. Bu sayede yük dağılımı sağlanmış olur.
 
 8. Hibernate, JPA, Spring Data framework’lerini örneklerle açıklayın. `(10 PUAN)`
+
+![img_1.png](img_1.png)
+JPA bir standarttır. JSON gibi. Python gibi. Bir framework değildir. Bir konsepttir.
+Yani birden fazla framework JPA'yı implemente edebilir.
+Hibernate ise JPA'nın bir implementasyonudur. JPA'nın standartlarını uygular.
+Hibernate, Java nesnelerini ilişkisel veritabanlarına bağlamak ve veritabanı işlemlerini yönetmek için kullanılan bir ORM (Object-Relational Mapping) framework'üdür. Hibernate, JDBC (Java Database Connectivity) gibi düşük seviyeli veritabanı işlemlerinin yerine daha yüksek seviyeli nesne odaklı bir yaklaşım sunar. Bu sayede, Java nesneleriyle veritabanı arasındaki eşleştirmeyi otomatikleştirir.
+JPA (Java Persistence API), Java platformu için bir ORM standardıdır. JPA, Java nesnelerini ilişkisel veritabanlarına bağlamak ve veritabanı işlemlerini yönetmek için kullanılır. JPA, Hibernate gibi ORM framework'lerinin altında çalışabilir.
+Spring Data, veritabanı işlemlerini gerçekleştirmek için kullanılan bir framework'dür. Spring Data, JPA, MongoDB, Redis, Cassandra gibi veritabanları için özelleştirilmiş modüller sunar. Bu modüller, veritabanı işlemlerini gerçekleştirmek için gerekli olan kodu otomatik olarak oluşturur ve geliştiricilere daha az kod yazma imkanı sunar.
+
 
 9. [**KredinBizde**](https://github.com/Definex-Java-Spring-Bootcampp/kredinbizde-service) Uygulamasına aşağıdaki özellikleri ekleyin. `(30 PUAN)`
     - Email adresi ile kullanıcının bütün başvurularını listeleyen end-point’i yazın.
