@@ -1,6 +1,6 @@
 package com.patika.kredinbizdeservice.factory;
 
-import com.patika.kredinbizdenservice.model.Bank;
+import com.patika.kredinbizdeservice.model.Bank;
 import lombok.Getter;
 
 import java.util.ArrayList;
