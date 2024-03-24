@@ -1,8 +1,8 @@
 package com.patika.kredinbizdeservice.factory;
 
-import com.patika.kredinbizdenservice.enums.SectorType;
-import com.patika.kredinbizdenservice.model.Bank;
-import com.patika.kredinbizdenservice.model.Campaign;
+import com.patika.kredinbizdeservice.enums.SectorType;
+import com.patika.kredinbizdeservice.model.Bank;
+import com.patika.kredinbizdeservice.model.Campaign;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
