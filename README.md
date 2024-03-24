@@ -132,10 +132,10 @@ Spring Data, veritabanı işlemlerini gerçekleştirmek için kullanılan bir fr
 
 
 9. [**KredinBizde**](https://github.com/Definex-Java-Spring-Bootcampp/kredinbizde-service) Uygulamasına aşağıdaki özellikleri ekleyin. `(30 PUAN)`
+    - Kredi başvurularını kaydeden end-point’i yazın.
     - Email adresi ile kullanıcının bütün başvurularını listeleyen end-point’i yazın.
     - Bankaların kredi kartlarını ve bu kartların kampanyalarını listeleyen end-point’i yazın.
     - Sistemdeki bütün kampanyaları en güncelden eski tarihe doğru listeleyen end-point’i yazın.
-    - Kredi başvurularını kaydeden end-point’i yazın.
 ---
 *Eğitmen - Cem DIRMAN*  
 *Kolay Gelsin*
