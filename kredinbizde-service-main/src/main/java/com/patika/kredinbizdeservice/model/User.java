@@ -1,5 +1,6 @@
 package com.patika.kredinbizdeservice.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.BeanDefinitionStoreException;
@@ -23,7 +24,8 @@ public class User {
     @Getter @Setter private String phoneNumber;
     @Getter @Setter private Boolean isActive;
 
-    @Getter private Set<Application> applicationList = new HashSet<>();
+    @Getter
+    private Set<Application> applicationList = new HashSet<>();
     private static final Set<String> registeredEmails = new HashSet<>();
 
     public void addApplication(Application application) {
