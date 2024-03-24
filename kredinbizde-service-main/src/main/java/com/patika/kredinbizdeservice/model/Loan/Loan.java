@@ -1,19 +1,21 @@
 package com.patika.kredinbizdeservice.model.Loan;
 
-import com.patika.kredinbizdenservice.model.Bank;
-import com.patika.kredinbizdenservice.model.Product;
+import com.patika.kredinbizdeservice.model.Bank;
 import lombok.Getter;
 
 import java.math.BigDecimal;
 
-public abstract class Loan implements Product {
+@Getter
+public abstract class Loan {
 
-    @Getter private BigDecimal amount;
-    @Getter private Integer installment;
-    @Getter private Bank bank;
-    @Getter private Double interestRate;
+    private Integer id;
+    private BigDecimal amount;
+    private Integer installment;
+    private Bank bank;
+    private Double interestRate;
 
-    protected Loan(BigDecimal amount, Integer installment, Double interestRate, Bank bank) {
+    protected Loan(Integer id, BigDecimal amount, Integer installment, Double interestRate, Bank bank) {
+        this.id = id;
         this.amount = amount;
         this.installment = installment;
         this.interestRate = interestRate;
