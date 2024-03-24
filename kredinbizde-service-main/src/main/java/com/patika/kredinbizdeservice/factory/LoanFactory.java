@@ -1,16 +1,18 @@
 package com.patika.kredinbizdeservice.factory;
 
-import com.patika.kredinbizdenservice.enums.LoanType;
-import com.patika.kredinbizdenservice.model.Bank;
-import com.patika.kredinbizdenservice.model.Loan.ConsumerLoan;
-import com.patika.kredinbizdenservice.model.Loan.HouseLoan;
-import com.patika.kredinbizdenservice.model.Loan.Loan;
-import com.patika.kredinbizdenservice.model.Loan.VehicleLoan;
+import com.patika.kredinbizdeservice.enums.LoanType;
+import com.patika.kredinbizdeservice.model.Bank;
+import com.patika.kredinbizdeservice.model.Loan.ConsumerLoan;
+import com.patika.kredinbizdeservice.model.Loan.HouseLoan;
+import com.patika.kredinbizdeservice.model.Loan.Loan;
+import com.patika.kredinbizdeservice.model.Loan.VehicleLoan;
+import lombok.Getter;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
 public class LoanFactory{
 
     private static volatile LoanFactory instance;
@@ -30,12 +32,12 @@ public class LoanFactory{
         return instance;
     }
 
-    public Loan create(LoanType loanType, BigDecimal amount, Integer installment, Double interestRate, Bank bank) {
+    public Loan create(Integer id, LoanType loanType, BigDecimal amount, Integer installment, Double interestRate, Bank bank) {
 
         Loan loan = switch (loanType) {
-            case IHTIYAC_KREDISI -> ConsumerLoan.create(amount, installment, interestRate, bank);
-            case KONUT_KREDISI -> HouseLoan.create(amount, installment, interestRate, bank);
-            case ARAC_KREDISI -> VehicleLoan.create(amount, installment, interestRate, bank);
+            case IHTIYAC_KREDISI -> ConsumerLoan.create(id, amount, installment, interestRate, bank);
+            case KONUT_KREDISI -> HouseLoan.create(id, amount, installment, interestRate, bank);
+            case ARAC_KREDISI -> VehicleLoan.create(id, amount, installment, interestRate, bank);
         };
 
 
