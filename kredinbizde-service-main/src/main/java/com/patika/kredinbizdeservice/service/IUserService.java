@@ -1,6 +1,8 @@
 package com.patika.kredinbizdeservice.service;
 
+import com.patika.kredinbizdeservice.model.Application;
 import com.patika.kredinbizdeservice.model.User;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -12,4 +14,8 @@ public interface IUserService {
     User getByEmail(String email);
 
     User update(String email, User user);
+
+    Application addApplication(String email, Integer loanId);
+
+
 }
