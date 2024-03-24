@@ -1,74 +1,47 @@
 package com.patika.kredinbizdeservice.model;
 
 
-import com.patika.kredinbizdeservice.enums.ApplicationStatus;
+import com.patika.kredinbizdenservice.enums.ApplicationStatus;
+import com.patika.kredinbizdenservice.model.Loan.Loan;
+import lombok.Getter;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Application {
 
-    private Loan loan;
-    private Product product;
-    private User user;
-    private LocalDateTime localDateTime;
+    @Getter private Loan loan;
+    @Getter private User user;
+    @Getter private LocalDateTime localDateTime;
     private ApplicationStatus applicationStatus;
 
-    private Application() {
-    }
-
-    /*
-    public Application(CreditCard creditCard, User user, LocalDateTime localDateTime) {
-        this.creditCard = creditCard;
-        this.user = user;
-        this.localDateTime = localDateTime;
-        this.applicationStatus = ApplicationStatus.INITIAL;
-    }*/
-
-    public Application(Product product, User user, LocalDateTime localDateTime) {
-        this.product = product;
-        this.user = user;
-        this.localDateTime = localDateTime;
-        this.applicationStatus = ApplicationStatus.INITIAL;
-    }
-
-    public Application(Loan loan, User user, LocalDateTime localDateTime) {
+    private Application(Loan loan, User user, LocalDateTime localDateTime) {
         this.loan = loan;
         this.user = user;
         this.localDateTime = localDateTime;
         this.applicationStatus = ApplicationStatus.INITIAL;
+
     }
 
-    public Loan getLoan() {
-        return loan;
+    public static Application create(Loan loan, User user, LocalDateTime localDateTime) {
+        return new Application(loan, user, localDateTime);
     }
 
-    public void setLoan(Loan loan) {
-        this.loan = loan;
+    public static Application createRandom(Loan loan, User user) {
+
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        LocalDateTime threeMonthsAgo = currentDateTime.minusMonths(3);
+        long minSecond = threeMonthsAgo.atZone(ZoneId.systemDefault()).toEpochSecond();
+        long maxSecond = currentDateTime.atZone(ZoneId.systemDefault()).toEpochSecond();
+        long randomSecond = ThreadLocalRandom.current().nextLong(minSecond, maxSecond);
+        LocalDateTime randomDateTime = LocalDateTime.ofEpochSecond(randomSecond, 0, ZoneOffset.UTC);
+
+        return new Application(loan, user, randomDateTime);
+
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public LocalDateTime getLocalDateTime() {
-        return localDateTime;
-    }
-
-    public void setLocalDateTime(LocalDateTime localDateTime) {
-        this.localDateTime = localDateTime;
-    }
-
-    public ApplicationStatus getApplicationStatus() {
-        return applicationStatus;
-    }
-
-    public void setApplicationStatus(ApplicationStatus applicationStatus) {
-        this.applicationStatus = applicationStatus;
-    }
 
     @Override
     public String toString() {

@@ -1,48 +1,39 @@
 package com.patika.kredinbizdeservice.model;
 
+
+import com.patika.kredinbizdenservice.factory.BankFactory;
+import lombok.Getter;
+
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class CreditCard implements Product{
 
     private BigDecimal fee;
-    private List<Campaign> campaignList;
-    private Bank bank;
+    @Getter private Bank bank;
 
-    public CreditCard(BigDecimal fee, List<Campaign> campaignList) {
+
+    private CreditCard(BigDecimal fee, Bank bank) {
         this.fee = fee;
-        this.campaignList = campaignList;
-    }
-
-    public BigDecimal getFee() {
-        return fee;
-    }
-
-    public void setFee(BigDecimal fee) {
-        this.fee = fee;
-    }
-
-    public List<Campaign> getCampaignList() {
-        return campaignList;
-    }
-
-    public void setCampaignList(List<Campaign> campaignList) {
-        this.campaignList = campaignList;
-    }
-
-    public Bank getBank() {
-        return bank;
-    }
-
-    public void setBank(Bank bank) {
         this.bank = bank;
+    }
+
+    public static CreditCard create(BigDecimal fee, Bank bank) {
+        return new CreditCard(fee, bank);
+    }
+
+    public static CreditCard createRandom() {
+        return new CreditCard(BigDecimal.valueOf(100), BankFactory.getInstance().createRandom());
     }
 
     @Override
     public String toString() {
         return "CreditCard{" +
                 "fee=" + fee +
-                ", campaignList=" + campaignList +
+                ", campaignList=" + bank.getCampaignList() +
                 ", bank=" + bank +
                 '}';
     }
