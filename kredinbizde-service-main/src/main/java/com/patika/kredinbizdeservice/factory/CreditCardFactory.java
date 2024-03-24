@@ -1,7 +1,7 @@
 package com.patika.kredinbizdeservice.factory;
 
-import com.patika.kredinbizdenservice.model.Bank;
-import com.patika.kredinbizdenservice.model.CreditCard;
+import com.patika.kredinbizdeservice.model.Bank;
+import com.patika.kredinbizdeservice.model.CreditCard;
 import lombok.Getter;
 
 import java.math.BigDecimal;
