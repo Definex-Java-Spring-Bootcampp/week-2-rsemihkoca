@@ -1,11 +1,16 @@
 package com.patika.kredinbizdeservice.service;
 
+import com.patika.kredinbizdeservice.factory.ApplicationFactory;
+import com.patika.kredinbizdeservice.factory.LoanFactory;
+import com.patika.kredinbizdeservice.model.Application;
+import com.patika.kredinbizdeservice.model.Loan.Loan;
 import com.patika.kredinbizdeservice.model.User;
 import com.patika.kredinbizdeservice.repository.UserRepository;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,7 +18,7 @@ import java.util.Optional;
 @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class UserService implements IUserService {
 
-    private UserRepository userRepository = new UserRepository();
+    private final UserRepository userRepository = new UserRepository();
 
     @Override
     public User save(User user) {
@@ -62,4 +67,35 @@ public class UserService implements IUserService {
 
         return foundUser.get();
     }
+
+    @Override
+    public Application addApplication(String email, Integer loanId) {
+        // Check loan existence
+        Loan loan = LoanFactory.getInstance().getLoanList().stream()
+                .filter(l -> l.getId().equals(loanId))
+                .findFirst()
+                .orElse(null);
+        if (loan == null) {
+            throw new IllegalArgumentException("Loan with ID " + loanId + " not found");
+        }
+
+        // Check user existence
+        User user = getByEmail(email);
+        if (user == null) {
+            throw new IllegalArgumentException("User with email " + email + " not found");
+        }
+
+        // Check if the user already has an application for this loan
+        for (Application application : user.getApplicationList()) {
+            if (application.getLoan().getId().equals(loanId)) {
+                throw new IllegalStateException("User already has an application for loan with ID " + loanId);
+            }
+        }
+
+
+        return ApplicationFactory.getInstance().create(loan, user, LocalDateTime.now());
+    }
+
+
+
 }
