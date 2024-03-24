@@ -67,14 +67,14 @@ public class KredinbizdeServiceApplication {
         }
 
         // Aşağıdaki loanlar ApplicationController için.
-        Loan testloan = loanFactory.create(1, LoanType.IHTIYAC_KREDISI, BigDecimal.valueOf(110.01), 1, 1.1, bankFactory.createRandom());
-        Loan testloan1 = loanFactory.create(2, LoanType.ARAC_KREDISI, BigDecimal.valueOf(10.01), 1, 1.1, bankFactory.createRandom());
+        Loan testloan = loanFactory.create(1, LoanType.IHTIYAC_KREDISI, BigDecimal.valueOf(110.01), 123123, 1.1, bankFactory.createRandom());
+        Loan testloan1 = loanFactory.create(2, LoanType.ARAC_KREDISI, BigDecimal.valueOf(10.01), 123123, 1.1, bankFactory.createRandom());
         System.out.println("Test Loans Created!");
 
 
         campaignFactory.createRandomCampaigns(5);
 
-        creditCardFactory.createRandomCreditCards(10);
+        creditCardFactory.createRandomCreditCards(5);
 
         SpringApplication.run(KredinbizdeServiceApplication.class, args);
 
