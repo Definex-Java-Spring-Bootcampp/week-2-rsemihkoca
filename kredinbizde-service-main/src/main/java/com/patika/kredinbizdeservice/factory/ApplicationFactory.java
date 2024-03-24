@@ -1,8 +1,8 @@
 package com.patika.kredinbizdeservice.factory;
 
-import com.patika.kredinbizdenservice.model.Application;
-import com.patika.kredinbizdenservice.model.Loan.Loan;
-import com.patika.kredinbizdenservice.model.User;
+import com.patika.kredinbizdeservice.model.Application;
+import com.patika.kredinbizdeservice.model.Loan.Loan;
+import com.patika.kredinbizdeservice.model.User;
 import lombok.Getter;
 
 import java.time.LocalDate;
