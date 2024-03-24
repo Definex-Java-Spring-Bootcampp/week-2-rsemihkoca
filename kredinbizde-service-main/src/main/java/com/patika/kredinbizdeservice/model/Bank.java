@@ -1,19 +1,21 @@
 package com.patika.kredinbizdeservice.model;
 
-import com.patika.kredinbizdenservice.model.Loan.Loan;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.patika.kredinbizdeservice.model.Loan.Loan;
 import lombok.Getter;
 
 import java.util.*;
 
 public class Bank {
-
+    @Getter
     private String name;
+    @Getter
     private String location;
-    @Getter
+    @Getter @JsonIgnore
     private Set<Loan> loanList = new HashSet<>();
-    @Getter
+    @Getter @JsonIgnore
     private Set<CreditCard> creditCardList = new HashSet<>();
-    @Getter
+    @Getter @JsonIgnore
     private Set<Campaign> campaignList = new HashSet<>();
     /* !!! bankalaarın hem credit cardları var hem de campaignları var*/
 
