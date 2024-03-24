@@ -1,7 +1,7 @@
 package com.patika.kredinbizdeservice.model;
 
-import com.patika.kredinbizdenservice.enums.SectorType;
-import com.patika.kredinbizdenservice.factory.BankFactory;
+import com.patika.kredinbizdeservice.enums.SectorType;
+import com.patika.kredinbizdeservice.factory.BankFactory;
 import lombok.Getter;
 
 import java.time.LocalDate;
