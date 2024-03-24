@@ -3,11 +3,13 @@ package com.patika.kredinbizdeservice.factory;
 import com.patika.kredinbizdeservice.enums.SectorType;
 import com.patika.kredinbizdeservice.model.Bank;
 import com.patika.kredinbizdeservice.model.Campaign;
+import lombok.Getter;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
 public class CampaignFactory {
 
     private static volatile CampaignFactory instance;
