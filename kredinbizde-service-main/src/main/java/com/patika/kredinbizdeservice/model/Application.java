@@ -1,8 +1,9 @@
 package com.patika.kredinbizdeservice.model;
 
 
-import com.patika.kredinbizdenservice.enums.ApplicationStatus;
-import com.patika.kredinbizdenservice.model.Loan.Loan;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.patika.kredinbizdeservice.enums.ApplicationStatus;
+import com.patika.kredinbizdeservice.model.Loan.Loan;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
@@ -13,6 +14,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Application {
 
     @Getter private Loan loan;
+    @JsonIgnore
     @Getter private User user;
     @Getter private LocalDateTime localDateTime;
     private ApplicationStatus applicationStatus;
