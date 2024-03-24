@@ -1,2 +1,15 @@
-POST http://localhost:8080/api/applications/example@example.com
+###
+
+# curl -X 'POST'
+#  'http://localhost:8080/api/applications/cemdrman%40gmail.com'
+#  -H 'accept: */*'
+#  -H 'Content-Type: application/json'
+#  -d '1'
+POST http://localhost:8080/api/applications/cemdrman%40gmail.com
+accept: */*
 Content-Type: application/json
+
+1
+
+###
+

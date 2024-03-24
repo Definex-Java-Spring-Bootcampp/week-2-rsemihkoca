@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface ICampaignService {
 
-    public List<CampaignWithCC> getAllCampaigns();
-    public List<Campaign> getAllCampaignsOrdered();
+    List<CampaignWithCC> getAllCampaigns();
+    List<Campaign> getAllCampaignsOrdered();
 
 
 }
