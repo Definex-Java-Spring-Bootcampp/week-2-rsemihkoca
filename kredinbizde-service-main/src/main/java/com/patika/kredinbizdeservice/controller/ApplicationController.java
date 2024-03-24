@@ -4,7 +4,7 @@ import com.patika.kredinbizdeservice.model.*;
 import com.patika.kredinbizdeservice.service.IUserService;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/api/applications")
@@ -21,26 +21,13 @@ public class ApplicationController {
         return userService.addApplication(email, loanId);
     }
 
-//    @GetMapping("/{email}")
-//    public List<Application> getUserApplications(@PathVariable String email) {
-//        User user = userService.getByEmail(email);
-//        if (user != null) {
-//            return user.getApplicationList();
-//        }
-//        return null; // Handle the case where the user is not found
-//    }
-
-    @GetMapping("/creditcards")
-    public List<CreditCard> getCreditCardsAndCampaigns() {
-        // Implement logic to retrieve credit cards and campaigns
-        // Return a list of CreditCard objects containing campaign information
+    @GetMapping("/{email}")
+    public Set<Application> getUserApplications(@PathVariable String email) {
+        User user = userService.getByEmail(email);
+        if (user != null) {
+            return user.getApplicationList();
+        }
         return null;
     }
 
-    @GetMapping("/campaigns")
-    public List<Campaign> getAllCampaigns() {
-        // Implement logic to retrieve all campaigns sorted by date
-        // Return a list of Campaign objects
-        return null;
-    }
 }
