@@ -1,5 +1,8 @@
 package com.patika.kredinbizdeservice.repository;
 
+import com.patika.kredinbizdeservice.factory.ApplicationFactory;
+import com.patika.kredinbizdeservice.factory.UserFactory;
+import com.patika.kredinbizdeservice.model.Application;
 import com.patika.kredinbizdeservice.model.User;
 
 import java.util.ArrayList;
@@ -8,7 +11,7 @@ import java.util.Optional;
 
 public class UserRepository {
 
-    private List<User> userList = new ArrayList<>();
+    private final List<User> userList = UserFactory.getInstance().getUserList();
 
     public void save(User user) {
         userList.add(user);
