@@ -2,6 +2,7 @@ package com.patika.kredinbizdeservice.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.patika.kredinbizdeservice.enums.ApplicationStatus;
 import com.patika.kredinbizdeservice.model.Loan.Loan;
 import lombok.Getter;
@@ -19,6 +20,10 @@ public class Application {
     @Getter private LocalDateTime localDateTime;
     private ApplicationStatus applicationStatus;
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public String getEmail() {
+        return user != null ? user.getEmail() : null;
+    }
     private Application(Loan loan, User user, LocalDateTime localDateTime) {
         this.loan = loan;
         this.user = user;
