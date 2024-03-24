@@ -1,7 +1,7 @@
-# curl -X 'GET'
-#  'http://localhost:8080/api/campaigns/WithCC'
+# curl -X 'GET' 
+#  'http://localhost:8080/api/campaigns/All' 
 #  -H 'accept: */*'
-GET http://localhost:8080/api/campaigns/WithCC
+GET http://localhost:8080/api/campaigns/All
 accept: */*
 
 ###
