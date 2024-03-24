@@ -15,13 +15,13 @@ public class BankFactory {
 
     private static List<Bank> initializedBanks = new ArrayList<>(List.of(
             Bank.create("Garanti", "Istanbul"),
-            Bank.create("Akbank", "Istanbul"),
-            Bank.create("Yapi Kredi", "Istanbul"),
-            Bank.create("Ziraat", "Ankara"),
-            Bank.create("Vakif Bank", "Istanbul"),
-            Bank.create("Halk Bank", "Ankara"),
-            Bank.create("Is Bank", "Istanbul"),
-            Bank.create("TEB", "Istanbul"),
+//            Bank.create("Akbank", "Istanbul"),
+//            Bank.create("Yapi Kredi", "Istanbul"),
+//            Bank.create("Ziraat", "Ankara"),
+//            Bank.create("Vakif Bank", "Istanbul"),
+//            Bank.create("Halk Bank", "Ankara"),
+//            Bank.create("Is Bank", "Istanbul"),
+//            Bank.create("TEB", "Istanbul"),
             Bank.create("QNB Finansbank", "Istanbul"),
             Bank.create("Deniz Bank", "Istanbul")
     ));
