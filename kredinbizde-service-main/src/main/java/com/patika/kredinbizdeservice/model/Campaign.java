@@ -10,6 +10,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+@Getter
 public class Campaign {
 
     private String title;
@@ -18,7 +19,6 @@ public class Campaign {
     private LocalDate createDate;
     private LocalDate updateDate;
     private SectorType sector;
-    @Getter
     private Bank bank;
 
     private Campaign(Bank bank, String title, String content, LocalDate dueDate, LocalDate createDate, LocalDate updateDate, SectorType sector) {
@@ -43,7 +43,7 @@ public class Campaign {
                         "Yeni Nesil Akıllı Telefon Lansmanı",
                         "Yüksek performanslı, uygun fiyatlı akıllı telefonun lansmanı.",
                         LocalDate.of(2024, 6, 1),
-                        LocalDate.of(2024, 3, 1),
+                        LocalDate.of(2024, 3, 15),
                         LocalDate.of(2024, 3, 15),
                         SectorType.TECHNOLOGY
                 ),
@@ -61,7 +61,7 @@ public class Campaign {
                         "Yaratıcı Yazarlık Kursu Lansmanı",
                         "Yaratıcı yazarlık becerilerini geliştirmek için yeni bir kursun lansmanı.",
                         LocalDate.of(2024, 8, 1),
-                        LocalDate.of(2024, 3, 1),
+                        LocalDate.of(2024, 3, 4),
                         LocalDate.of(2024, 3, 20),
                         SectorType.EDUCATION
                 ),
@@ -79,7 +79,7 @@ public class Campaign {
                         "İstanbul Turlarıyla Taksim'i Gezin",
                         "Cumhuriyet'in 100. yılını kutlamak, halkı teşvik etmek.",
                         LocalDate.of(2024, 7, 1),
-                        LocalDate.of(2024, 3, 1),
+                        LocalDate.of(2024, 3, 8),
                         LocalDate.of(2024, 3, 16),
                         SectorType.TRAVELS
                 )
