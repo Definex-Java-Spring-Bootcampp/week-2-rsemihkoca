@@ -1,8 +1,7 @@
 package com.patika.kredinbizdeservice.controller;
 
-import com.patika.kredinbizdeservice.model.User;
+import com.patika.kredinbizdeservice.model.*;
 import com.patika.kredinbizdeservice.service.IUserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,10 +12,8 @@ import java.util.List;
 @RequestMapping("api/users")
 public class UserController {
 
-    @Autowired
-    private IUserService userService;
+    private final IUserService userService;
 
-    @Autowired
     public UserController(IUserService userService) {
         this.userService = userService;
     }
@@ -29,9 +26,6 @@ public class UserController {
         return userService.save(user);
     }
 
-    /*
-    get all users
-     */
     @GetMapping
     public List<User> getAll() {
         return userService.getAll();
